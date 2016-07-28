@@ -1,0 +1,1 @@
+I put the database for the project in db folder. 

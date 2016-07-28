@@ -1,0 +1,139 @@
+<!--
+* Author: Sean Calnan
+* Assignment: WE4.0 Mobile Web Applications, Digital Skills Academy
+* Date : 2015/05/15
+* Ref:		 http://demos.jquerymobile.com/1.4.5/
+			 http://www.w3schools.com/jsref/met_his_back.asp
+			 https://themeroller.jquerymobile.com/
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="Theme/goldTheme.css"><!-- Custom Theme-->
+	<link rel="stylesheet" href="Theme/custom.css"><!-- Custom <li>-->
+
+	<script src="jqm/jquery-1.12.1.min.js"></script>
+	<script src="jqm/jquery.mobile-1.4.5.min.js"></script>
+
+
+</head>
+<body>
+	<div data-role="page">
+
+
+		<div data-role="header">
+			<h1 id="bigText"> Album Finder</h1>
+			<a data-role="button" href="#mypanel" data-icon="info">help</a>
+		</div>	
+
+
+		<div data-role="panel" id="mypanel"	data-display="overlay">
+			<p align="right"><a href="#my-header" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-rel="close"  data-icon="info">No text</a></p>
+			<!--side panel closer-->
+			<p>Here you can search for albums by name or by band.<br>Simply click on the search box and type in what your looking for to find, any album in our extensive catalogue.</p>
+		</div><!--side help panel-->
+
+
+		<div data-role="content">
+			<div class="content-primary" id="list">
+				<div data-demo-html="true">
+					<ul data-role="listview" id="music" data-filter="true" >
+				</div>
+			</div>
+
+
+		</div> <!-- Listview to be filled by jquery code from json-->
+		
+	
+	</div>	
+
+
+
+		<div data-role="page" data-transition="slideup" id="albumInfo"><!--page opened by listview-->
+
+			<div data-role="header">
+			<p align="right"> <button onclick="goBack()">Go Back</button></p><!--backbutton-->
+				
+				<p id="headerTitle"></p>
+				
+			</div>
+
+			<div id="background"></div>
+
+			<div class="content-primary" id="listBand">
+				<div data-demo-html="true">
+					<ul data-role="listview" id="songs">
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+
+
+	<script type="text/javascript">
+
+	function goBack() {
+    window.history.back();
+}//back button
+
+	var pageid;//for registering which item from the list is selected
+
+		 $.getJSON('music.json', function(data) {
+		 	//access json, if you add in a new source for the json here that is similarly formatted my code will accomendate it
+        var output="";
+        for (var i in data.albums) {
+            output+="<li id=\""+i+"\"><a href=\"#albumInfo\"> " + data.albums[i].title + " --- by   " + data.albums[i].band+"</a></li>";
+        }
+        output+="";
+        $('#music').append(output).listview('refresh');//fills list then refreshes it to populate list
+  });
+
+
+
+
+
+
+
+
+
+	  $('#music').on('click', 'li', function() {
+       pageid= $(this).attr('id');//captures list click and the id that was selected
+
+		       $.getJSON('music.json', function(data) {
+		       //access json, if you add in a new source for the json here that is similarly formatted my code will accomendate it
+		        var title="";
+		            title+="<h1 align=\"center\">" + data.albums[pageid].title + " --- by   " + data.albums[pageid].band+ "</h>";//title of generated page
+
+				var background="";
+		            background+="<h3 align=\"center\">" + data.albums[pageid].description + "</h>";//body text of generated page
+
+
+				var song="";
+						for (var i in data.albums[pageid].songs) {
+				            song+="<li id=\"custom\"> " + data.albums[pageid].songs[i].title + " <br> length:  " + data.albums[pageid].songs[i].length +"</li>";
+				            //list of songs on generated page
+
+				        }
+
+				        $('#songs').empty();
+				        $('#songs').append(song).listview('refresh');//empty list of songs on generated page then fill it. 
+				        document.getElementById("headerTitle").innerHTML =title;
+				        document.getElementById("background").innerHTML =background;
+				 });
+
+		 });
+
+		 
+    </script>
+
+</body>
+</html>
+

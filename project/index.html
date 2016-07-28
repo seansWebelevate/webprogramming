@@ -1,0 +1,47 @@
+/**********************************************************
+* Author: Sean Calnan
+* Assignment: WE4.0 PHP Web App Assignment, Digital Skills Academy
+* Student ID: D15126871
+* Date : 2016/02/12
+* Ref: http://www.w3schools.com/html/html_elements.asp
+***********************************************************/
+
+
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<head>
+
+<div style="background-color:black;color:white;text-align:center;padding:5px;">
+<h1>Departure Times</h1>
+</div>
+
+	</head>
+<body>
+
+	<div style="line-height:30px;background-color:#eeeeee;height:100%;width:10%;float:left;padding:5px;">
+	</div>
+
+	<div style="width:650px;float:left;padding:10px; ">
+
+		<p><h1>Congratulations</h1> on winning an all expense paid trip to las Vegas you plane leaves on monday the 15th of feburary please select the most convient time for your departure:
+
+
+    <!--User input-->
+		<form action="Main.php" method="post">
+			<select name="Time">
+				<option value="1">07:00</option>
+				<option value="2">09:00</option>
+				<option value="3">11:00</option>
+				<option value="4">13:00</option>
+				<option value="5">15:00</option>
+				<option value="6">17:00</option>
+				<option value="7">19:00</option>
+				<option value="8">21:00</option>
+			</select>
+			<input type="submit" name="submit" value="Get Selected Time" />
+		</form>
+	</div>
+
+	<div style="background-color:black;clear:both;color:white;text-align:center;padding:5px;"></div>
+</body>
+</html>

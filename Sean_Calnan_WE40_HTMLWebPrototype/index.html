@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+
+<!--
+* Author: Sean Calnan
+* Assignment: WE4.0 PHP Web App Assignment, Digital Skills Academy
+* Student ID: D15126871
+* Date : 2016/04/26
+* Ref: http://www.w3schools.com/tags/att_input_pattern.asp , http://www.w3schools.com/bootstrap/, http://getbootstrap.com/components/
+-->
+
+
+	<head>
+	<title>index</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+      <!--fluid navbar -->
+	    
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid" height="50">
+    
+	
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+	  </button>
+    </div>
+
+	<div class="collapse navbar-collapse" id="navHeaderCollapse" >
+	<a class="navbar-brand" href="#"><img alt="Brand" src="images/logoF2F_reversed1.png" height="70"/></a>
+      <ul class="nav navbar-nav" padding-top="5" >
+
+        <!--navbar navigation for the website-->
+
+        <li ><a href="team.html" id="nav_text" >team</a></li>
+        <li><a href="blog.html" id="nav_text">blog</a></li><li >
+		<li ><a href="email.html" id="nav_text">e-mail</a></li>
+		
+
+    <!--links to intagram and twitter-->
+		</ul>
+        <a  href="https://www.instagram.com/face2face/" class="nav navbar-nav navbar-right"><img src="images/INSTA.png" id="icon_size"  /> </a></li>
+        <a href="https://twitter.com/face2face/" class="nav navbar-nav navbar-right"><img src="images/TWIT.png" id="icon_size"/></a></li>
+        <a href="https://www.facebook.com/Face2Face" class="nav navbar-nav navbar-right"><img src="images/FACE.png" id="icon_size" /></a></li>
+	
+    </div>
+  </div>
+	</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+
+    <!-- indented from the left-->
+    </div>
+    <div class="col-sm-8" id="panel">
+    <div class="col-sm-2" ></div>
+    <div class="col-sm-8" >
+    <!-- main site logo -->
+     <p  align="center"><a href="blog.html"><img src="images/logoF2F_reversed2.png" width="100%"/></a>
+
+
+
+
+    <!-- form group-->
+     	<form role="form" action="php/main.php" method="POST">
+    <!-- full name-->
+		  <div class="form-group">
+		    <label for="name">Full Name</label>
+		    <input type="text" class="form-control" name="Name"required/>
+		  </div>
+    <!-- nickname-->
+		  <div class="form-group">
+		    <label for="N-name">Nick Name</label>
+		    <input type="text" class="form-control" name="N-name"   pattern="^[A-Za-z]+$" title="One word" required/>
+		  </div>
+    <!-- email address-->
+		   <div class="form-group">
+		    <label for="email" >E-mail address</label>
+		    <input input type="text" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="name@mydomain.com" required/>
+		  </div>
+    <!-- post/ loc8 code-->
+		  <div class="form-group">
+		    <label for="pst/loc">Post/Loc Code</label>
+		    <input input type="text" class="form-control" name="pst/loc" required/>
+		  </div>
+    <!-- telephone number-->
+		  <div class="form-group">
+		    <label for="tel">Mobile Number</label>
+		    <input input type="tel" class="form-control" name="tel" required/>
+		  </div>
+
+    <!-- select form-->
+		<div class="form-group" >
+		  <label for="sellect">Right now I'm stuck with.</label>
+		  <select class="form-control" name="sel1">
+		    <option>Skype</option>
+		    <option>Facetime</option>
+		    <option>Whatsapp</option>
+		    <option>Viber</option>
+		  </select>
+		</div>
+		  <br>
+
+    <!-- submit button-->
+		  <button type="submit" class="btn btn-warning center-block" align="center">SEND</button>
+		</form>
+
+
+
+     	</p>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    </div>
+  </div>
+
+<!--footer tag used to anchor bottom image-->
+		<div id="footer">
+
+		</div>
+  </div>
+
+
+
+	</body>
+	
+	
+</html>

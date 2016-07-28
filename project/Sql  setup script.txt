@@ -1,0 +1,11 @@
+/**********************************************************
+* Author: Sean Calnan
+* Assignment: WE4.0 PHP Web App Assignment, Digital Skills Academy
+* Student ID: D15126871
+* Date : 2016/02/12
+* Ref: http://www.w3schools.com/sql/sql_create_db.asp
+***********************************************************
+
+CREATE DATABASE project;
+
+//I created the table , rows and content in the php files. 
